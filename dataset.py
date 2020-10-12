@@ -113,7 +113,7 @@ class MyDataset():
             n_slide = np.random.randint(0, len(self.slides))
             slide = self.slides[n_slide]
             n_bbox = np.random.randint(0, len(self.bboxes[n_slide]))
-            bbox = self.bboxes[n_bbox]
+            bbox = self.bboxes[n_slide][n_bbox]
             subimg = self.get_random_crop_around(slide, bbox[0])
             other_bboxes, other_labels = self.get_all_landed_bboxes(subimg, self.bb_arr[n_slide], self.lbl_arr[n_slide])
             subimg = slide.get_patch(*subimg[0:2])
